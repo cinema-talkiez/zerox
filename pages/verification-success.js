@@ -6,7 +6,7 @@ export default function VerificationSuccess() {
     localStorage.setItem("validToken", "true");
 
     // Set expiration time for 5 minutes
-    const expirationTime = Date.now() + 10 * 60 * 1000;
+    const expirationTime = Date.now() + 3 * 60 * 1000;
     localStorage.setItem("validTokenExpiration", expirationTime.toString());
   }, []);
 
