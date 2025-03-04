@@ -60,9 +60,10 @@ export default function HomePage() {
             )}
 
             {validToken && (
-              <Link href="/index1">
-                <button className="visitButton">Visit HomePage</button>
-              </Link>
+<a href="/index1">
+    <button className="visitButton">Visit HomePage</button>
+</a>
+
             )}
           </>
         )}
