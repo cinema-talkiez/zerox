@@ -2,7 +2,7 @@ import React from "react";
 
 const Index1 = () => {
   const handleRedirect = () => {
-    window.location.href = "https://esc.ibomma.day/"; // Change this to your desired URL
+    window.location.href = "https://esa.ibomma.day/"; // Change this to your desired URL
   };
 
   return (
