@@ -1,25 +1,32 @@
 import React from "react";
 
-const Index = () => {
-  const mediafireLink = "https://www.mediafire.com/file/example.apk"; // Replace with your actual APK link
+const SharePage = () => {
+  const handleShare = () => {
+    const mediafireLink = "https://www.mediafire.com/file/example.apk"; 
+    const shareMessage = `Download this APK: ${mediafireLink}`;
 
-  const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: "Download APK",
-          text: "Get this APK now!",
-          url: mediafireLink,
-        });
+    // ✅ Check if running inside an Android WebView
+    const isAndroidWebView = navigator.userAgent.includes("wv");
 
-        // ✅ Share successful, set validToken to true
-        localStorage.setItem("validToken", "true");
+    if (navigator.share && !isAndroidWebView) {
+      // ✅ Use native Web Share API (Only works in normal browsers)
+      navigator.share({
+        title: "Download APK",
+        text: shareMessage,
+        url: mediafireLink,
+      })
+      .then(() => {
+        localStorage.setItem("validToken", "true"); // ✅ Set token after successful share
         alert("Shared successfully! Token set.");
-      } catch (error) {
-        console.error("Sharing failed", error);
-      }
+      })
+      .catch((error) => console.error("Sharing failed", error));
+    } else if (window.Android) {
+      // ✅ WebView: Use Android Interface for Sharing
+      window.Android.share(shareMessage);
     } else {
-      alert("Sharing is not supported on this device.");
+      // ✅ Open WhatsApp as a fallback
+      const encodedMessage = encodeURIComponent(shareMessage);
+      window.location.href = `https://wa.me/?text=${encodedMessage}`;
     }
   };
 
@@ -35,4 +42,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default SharePage;
