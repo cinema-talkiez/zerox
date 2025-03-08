@@ -1,37 +1,51 @@
+import { useEffect } from "react";
+
 const handleShare = () => {
-  const mediafireLink = "https://www.mediafire.com/file/example.apk"; 
+  const mediafireLink = "https://www.mediafire.com/file/example.apk";
   const shareMessage = `Download this APK: ${mediafireLink}`;
 
-  // ✅ Check if running inside an Android WebView
-  const isAndroidWebView = window.Android !== undefined;
+  if (typeof window !== "undefined") {
+    const isAndroidWebView = window.Android !== undefined;
 
-  if (navigator.share && !isAndroidWebView) {
-    // ✅ Use Web Share API (Only in browsers)
-    navigator.share({
-      title: "Download APK",
-      text: shareMessage,
-      url: mediafireLink,
-    })
-    .then(() => {
-      localStorage.setItem("validToken", "true"); // ✅ Set token after successful share
-      alert("Shared successfully! Token set.");
-    })
-    .catch((error) => console.error("Sharing failed", error));
-  } else if (window.Android) {
-    // ✅ WebView: Use Android Interface for Sharing
-    window.Android.share(shareMessage);
-    localStorage.setItem("validToken", "true"); // ✅ Set token after successful share
-  } else {
-    // ✅ Fallback: Open WhatsApp sharing as a last resort
-    const encodedMessage = encodeURIComponent(shareMessage);
-    window.location.href = `https://wa.me/?text=${encodedMessage}`;
+    if (navigator.share && !isAndroidWebView) {
+      navigator
+        .share({
+          title: "Download APK",
+          text: shareMessage,
+          url: mediafireLink,
+        })
+        .then(() => {
+          localStorage.setItem("validToken", "true");
+          alert("Shared successfully! Token set.");
+        })
+        .catch((error) => console.error("Sharing failed", error));
+    } else if (window.Android) {
+      window.Android.share(shareMessage);
+      localStorage.setItem("validToken", "true");
+    } else {
+      const encodedMessage = encodeURIComponent(shareMessage);
+      window.location.href = `https://wa.me/?text=${encodedMessage}`;
+    }
   }
 };
 
-// ✅ Attach event listener to the share button
-document.addEventListener("DOMContentLoaded", () => {
-  const shareButton = document.getElementById("shareButton");
-  if (shareButton) {
-    shareButton.addEventListener("click", handleShare);
-  }
-});
+export default function SharePage() {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const shareButton = document.getElementById("shareButton");
+      if (shareButton) {
+        shareButton.addEventListener("click", handleShare);
+      }
+    }
+  }, []);
+
+  return (
+    <div style={{ textAlign: "center", padding: "20px" }}>
+      <h1>Share APK</h1>
+      <p>Click the button below to share the APK:</p>
+      <button id="shareButton" style={{ padding: "10px 20px", fontSize: "16px" }}>
+        Share APK
+      </button>
+    </div>
+  );
+}
