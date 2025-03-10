@@ -6,16 +6,19 @@ export default function VerificationSuccess() {
     localStorage.setItem("validToken", "true");
 
     // Set expiration time for 5 minutes
-    const expirationTime = Date.now() + 3 * 60 * 1000;
+    const expirationTime = Date.now() + 10 * 60 * 1000;
     localStorage.setItem("validTokenExpiration", expirationTime.toString());
   }, []);
 
-  // Function to restart the app
-  const handleRestartApp = () => {
+  // Function to handle exit button click
+  const handleExitApp = () => {
     if (window.Android) {
-      window.Android.restartApp(); // 🚀 Calls restart function in WebView
+      window.Android.exitApp(); // 🚀 Call native exit function for WebView apps
     } else {
-      alert("Restart not supported in browser. Please reopen the tab.");
+      window.close(); // Attempt to close tab
+      setTimeout(() => {
+        alert("Unable to close automatically. Please close the tab manually.");
+      }, 500);
     }
   };
 
@@ -24,11 +27,12 @@ export default function VerificationSuccess() {
       <div className="success-container">
         <h1>✅ Verification Successful!</h1>
         <p>Your token is now valid. You can access the content.</p>
-        <p>Click the button below to Restart the app.</p>
+        {/*<div className="loader0"></div>*/}
+        <p>Click the button below to Exit the app.</p>
 
-        {/* Restart Button */}
-        <button className="exit-btn" onClick={handleRestartApp}>
-          Restart App
+        {/* Exit Button */}
+        <button className="exit-btn" onClick={handleExitApp}>
+          Exit App
         </button>
       </div>
 
@@ -64,12 +68,27 @@ export default function VerificationSuccess() {
           opacity: 0.9;
         }
 
+        .loader0 {
+          width: 30px;
+          height: 30px;
+          border: 3px solid transparent;
+          border-top: 3px solid #4CAF50;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+          margin: 20px auto;
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+
         .exit-btn {
           margin-top: 20px;
           padding: 10px 20px;
           font-size: 18px;
           color: white;
-          background-color: blue;
+          background-color: red;
           border: none;
           border-radius: 5px;
           cursor: pointer;
@@ -77,7 +96,7 @@ export default function VerificationSuccess() {
         }
 
         .exit-btn:hover {
-          background-color: darkblue;
+          background-color: darkred;
         }
       `}</style>
     </div>
