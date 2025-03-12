@@ -38,12 +38,12 @@ export default function HomePage() {
 
   return (
     <div className="glassmorphism-page">
-      <div className="container">
+      <div className="container5">
         <h1>Hello Mama! Welcome to Cinema Talkiez</h1>
         <p>
           Cinema Talkiez is specially designed for middle-class movie lovers. This is an affordable entertainment with a vast collection of movies without the financial burden.
         </p>
-        <p>Our content is regularly added to watch/download.</p>
+        <p>OUT content is regularly added to watch/download.</p>
 
         {checkingToken ? (
           <p className="loading-text">Checking token...</p>
