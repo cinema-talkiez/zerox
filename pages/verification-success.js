@@ -1,7 +1,14 @@
 import { useEffect } from "react";
 
 export default function VerificationSuccess() {
+  useEffect(() => {
+    // Set validToken in localStorage
+    localStorage.setItem("validToken", "true");
 
+    // Set expiration time for 5 minutes
+    const expirationTime = Date.now() + 5 * 60 * 1000;
+    localStorage.setItem("validTokenExpiration", expirationTime.toString());
+  }, []);
 
   // Function to handle exit button click
   const handleExitApp = () => {
