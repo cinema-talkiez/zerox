@@ -54,17 +54,28 @@ export default function HomePage() {
         ) : (
           <>
             {!validToken && (
-              <button onClick={() => window.open("/verification-success", "_blank")} className="verifyButton">
-  Verify Token
-</button>
-
-            )}
+  <>
+    <button onClick={() => router.push("/verification-success")} className="verifyButton">
+      Verify Token
+    </button>
+    <button onClick={() => router.push("/share")} className="verifyButton">
+      Share
+    </button>
+  </>
+)}
 
             {validToken && (
-              <Link href="/index1">
-                <button className="visitButton">Visit HomePage</button>
-              </Link>
-            )}
+  <>
+    <Link href="/index1">
+      <button className="visitButton">Visit HomePage</button>
+    </Link>
+              <p>Verify again if ads still appear</p>
+    <button onClick={() => router.push("/verification-success")} className="verifyButton">
+      Verify Token
+    </button>
+  </>
+)}
+
           </>
         )}
 
