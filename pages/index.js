@@ -1,43 +1,20 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-export default function HomePage() {
-  const [validToken, setValidToken] = useState(false);
+export default function Index() {
+  const [tokenValid, setTokenValid] = useState(false);
   const [checkingToken, setCheckingToken] = useState(true);
   const router = useRouter();
 
-  // Function to check token validity
-  const checkTokenValidity = () => {
-    const storedValidToken = localStorage.getItem("validToken");
-    const storedExpirationTime = localStorage.getItem("validTokenExpiration");
-
-    if (storedValidToken === "true" && storedExpirationTime) {
-      if (Date.now() < parseInt(storedExpirationTime)) {
-        setValidToken(true); // Token is valid
-        router.push("/index1"); // 🚀 Auto-redirect if token is valid
-      } else {
-        // Token expired
-        setValidToken(false);
-        localStorage.removeItem("validToken");
-        localStorage.removeItem("validTokenExpiration");
-      }
+  useEffect(() => {
+    const isValid = localStorage.getItem("tokenValid") === "true";
+    if (isValid) {
+      router.push("/index1"); // 🚀 Redirect if token is valid
     } else {
-      setValidToken(false);
+      setTokenValid(false);
     }
     setCheckingToken(false);
-  };
-
-  useEffect(() => {
-    checkTokenValidity(); // Check on mount
-
-    // Listen for storage changes (for when `validToken` updates in verification-success.js)
-    const handleStorageChange = () => {
-      checkTokenValidity();
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-    return () => window.removeEventListener("storage", handleStorageChange);
-  }, []);
+  }, [router]);
 
   return (
     <div className="glassmorphism-page">
@@ -52,20 +29,16 @@ export default function HomePage() {
         {checkingToken ? (
           <p className="loading-text">Checking token...</p>
         ) : (
-          <>
-            {!validToken && (
-         
-              <>
-                <button onClick={() => router.push("/verification-success")} className="verifyButton">
-                  Verify Token
-                </button>
-
-                <button onClick={() => router.push("/share")} className="verifyButton">
-                  Share
-                </button>
-              </>
-            )}
-          </>
+          !tokenValid && (
+            <>
+              <button onClick={() => router.push("/verification-success")} className="verifyButton">
+                Verify Token
+              </button>
+              <button onClick={() => router.push("/share")} className="verifyButton">
+                Share
+              </button>
+            </>
+          )
         )}
 
         <style jsx>{`
