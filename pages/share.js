@@ -3,14 +3,10 @@ export default function SharePage() {
   const shareMessage = `Download this APK: ${mediafireLink}`;
   
   const handleWhatsAppShare = () => {
-    const whatsappUrl = `whatsapp://send?text=${encodeURIComponent(shareMessage)}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareMessage)}`;
 
-    // ✅ Create a hidden link to trigger WhatsApp
-    const link = document.createElement("a");
-    link.href = whatsappUrl;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // ✅ Open WhatsApp in WebView (WebView will now send it to the external app)
+    window.location.href = whatsappUrl;
   };
 
   return (
