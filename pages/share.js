@@ -3,10 +3,10 @@ export default function SharePage() {
   const shareMessage = `Download this APK: ${mediafireLink}`;
 
   const handleWhatsAppShare = () => {
-    const whatsappWeb = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareMessage)}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareMessage)}`;
 
-    // ✅ Open WhatsApp Web via Chrome (Ensures app opens automatically)
-    window.open(whatsappWeb, "_blank");
+    // ✅ Open in a new tab, ensuring it launches in the user's default browser
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
