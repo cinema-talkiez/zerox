@@ -1,12 +1,12 @@
 export default function SharePage() {
   const mediafireLink = "https://www.mediafire.com/file/example.apk";
   const shareMessage = `Download this APK: ${mediafireLink}`;
-  
-  const handleWhatsAppShare = () => {
-    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareMessage)}`;
 
-    // ✅ Open WhatsApp in WebView (WebView will now send it to the external app)
-    window.location.href = whatsappUrl;
+  const handleWhatsAppShare = () => {
+    const whatsappWeb = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareMessage)}`;
+
+    // ✅ Open WhatsApp Web via Chrome (Ensures app opens automatically)
+    window.open(whatsappWeb, "_blank");
   };
 
   return (
