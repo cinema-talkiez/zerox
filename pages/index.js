@@ -51,7 +51,7 @@ export default function HomePage() {
           <>
             {!validToken ? (
               <>
-                <button onClick={() => router.push("/verification-success")} className="verifyButton">
+                <button onClick={() => router.push("/verify")} className="verifyButton">
                   Verify Token
                 </button>
                 <button onClick={() => router.push("/share")} className="verifyButton">
