@@ -15,24 +15,21 @@ const Index1 = () => {
     color: "white",
     borderRadius: "5px",
     transition: "0.3s",
-    width: "100%",
+    width: "45%", // Ensures two buttons per row
     maxWidth: "200px",
     textAlign: "center",
-  };
-
-  const buttonHoverStyle = {
-    ...buttonStyle,
-    backgroundColor: "#0056b3",
   };
 
   const containerStyle = {
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
     height: "100vh",
     gap: "10px",
     padding: "10px",
+    maxWidth: "420px", // Prevents buttons from stretching too wide
+    margin: "0 auto", // Centers the container
   };
 
   return (
