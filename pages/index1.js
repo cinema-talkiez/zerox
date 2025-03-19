@@ -46,6 +46,7 @@ const Index1 = () => {
       <button style={buttonStyle} onClick={() => handleRedirect("https://crex.live/")}>Crex Live</button>
       <button style={buttonStyle} onClick={() => handleRedirect("https://m.cricbuzz.com/")}>Cricbuzz</button>
       <button style={buttonStyle} onClick={() => handleRedirect("https://www.5movierulz.ag/")}>5Movierulz</button>
+      <button style={buttonStyle} onClick={() => handleRedirect("/index2")}>Go to Index2</button>
     </div>
   );
 };
