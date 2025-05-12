@@ -34,7 +34,7 @@ const Index1 = () => {
 
   return (
     <div style={containerStyle}>
-      <button style={buttonStyle} onClick={() => handleRedirect("https://aes.ibomma.boo/")}>ESA Ibomma</button>
+      <button style={buttonStyle} onClick={() => handleRedirect("https://rce.ibomma.men/")}>ESA Ibomma</button>
       <button style={buttonStyle} onClick={() => handleRedirect("https://netfree2.cc/mobile/home")}>Mirror</button>
       <button style={buttonStyle} onClick={() => handleRedirect("https://toonworld4all.me/")}>Mirror</button>
       <button style={buttonStyle} onClick={() => handleRedirect("https://www.moviezwap.pub/")}>Moviezwap</button>
