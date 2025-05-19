@@ -35,18 +35,20 @@ const Index1 = () => {
   return (
     <div style={containerStyle}>
       <button style={buttonStyle} onClick={() => handleRedirect("https://rce.ibomma.men/")}>ESA Ibomma</button>
-      <button style={buttonStyle} onClick={() => handleRedirect("https://netfree2.cc/mobile/home")}>Mirror</button>
-      <button style={buttonStyle} onClick={() => handleRedirect("https://toonworld4all.me/")}>Mirror</button>
-      <button style={buttonStyle} onClick={() => handleRedirect("https://www.moviezwap.pub/")}>Moviezwap</button>
+      <button style={buttonStyle} onClick={() => handleRedirect("https://www.5movierulz.srl/")}>Movierulz</button>
+        <button style={buttonStyle} onClick={() => handleRedirect("https://www.moviezwap.pub/")}>Moviezwap</button>
       <button style={buttonStyle} onClick={() => handleRedirect("https://movieswood.cloud/")}>Movieswood</button>
+      <button style={buttonStyle} onClick={() => handleRedirect("https://netfree2.cc/mobile/home")}>Mirror</button>
+      <button style={buttonStyle} onClick={() => handleRedirect("https://toonworld4all.me/")}>Toonworld4all</button>
+
       <button style={buttonStyle} onClick={() => handleRedirect("https://anime-world.co/")}>Anime World</button>
       <button style={buttonStyle} onClick={() => handleRedirect("https://animedub.pro/")}>AnimeDub</button>
       <button style={buttonStyle} onClick={() => handleRedirect("https://9anime.org.lv/")}>9Anime</button>
       <button style={buttonStyle} onClick={() => handleRedirect("https://zorotv.com.in/")}>ZoroTV</button>
       <button style={buttonStyle} onClick={() => handleRedirect("https://telugupalakamovies.com/")}>TeluguPalakaMovies</button>
-      <button style={buttonStyle} onClick={() => handleRedirect("https://crex.live/")}>Crex Live</button>
-      <button style={buttonStyle} onClick={() => handleRedirect("https://m.cricbuzz.com/")}>Cricbuzz</button>
-      <button style={buttonStyle} onClick={() => handleRedirect("https://www.5movierulz.live/")}>5Movierulz</button>
+      <button style={buttonStyle} onClick={() => handleRedirect("https://toonshub.xyz/")}>Toons Hub</button>
+      <button style={buttonStyle} onClick={() => handleRedirect("https://hianimez.to/home")}>H! Anime</button>
+      <button style={buttonStyle} onClick={() => handleRedirect("https://www.animes4u.com/")}>Anime4U</button>
       <button style={buttonStyle} onClick={() => handleRedirect("/index2")}>Go to Index2</button>
     </div>
   );
