@@ -49,7 +49,7 @@ const Index1 = () => {
       <button style={buttonStyle} onClick={() => handleRedirect("https://toonshub.xyz/")}>Toons Hub</button>
       <button style={buttonStyle} onClick={() => handleRedirect("https://hianimez.to/home")}>H! Anime</button>
       <button style={buttonStyle} onClick={() => handleRedirect("https://www.animes4u.com/")}>Anime4U</button>
-      <button style={buttonStyle} onClick={() => handleRedirect("/index2")}>Go to Index2</button>
+      <button style={buttonStyle} onClick={() => handleRedirect("https://poki.com/")}>Game Space</button>
     </div>
   );
 };
