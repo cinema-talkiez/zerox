@@ -41,7 +41,7 @@ const Index1 = () => {
       <button style={buttonStyle} onClick={() => handleRedirect("https://netfree2.cc/mobile/home")}>Mirror</button>
       <button style={buttonStyle} onClick={() => handleRedirect("https://toonworld4all.me/")}>Toonworld4all</button>
 
-      <button style={buttonStyle} onClick={() => handleRedirect("https://anime-world.co/")}>Anime World</button>
+      <button style={buttonStyle} onClick={() => handleRedirect("https://watchanimeworld.in/")}>Anime World</button>
       <button style={buttonStyle} onClick={() => handleRedirect("https://animedub.pro/")}>AnimeDub</button>
       <button style={buttonStyle} onClick={() => handleRedirect("https://9anime.org.lv/")}>9Anime</button>
       <button style={buttonStyle} onClick={() => handleRedirect("https://zorotv.com.in/")}>ZoroTV</button>
