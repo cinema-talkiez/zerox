@@ -46,6 +46,7 @@ const Index1 = () => {
     color: "white",
     backgroundColor: "black",
     border: "1px solid #00D4FF",
+    WebkitTapHighlightColor: "transparent",
   };
 
   const imageStyle = {
