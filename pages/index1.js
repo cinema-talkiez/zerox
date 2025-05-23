@@ -68,6 +68,37 @@ const Index1 = () => {
 
   return (
     <div style={pageStyle}>
+    <div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  textAlign: 'center',
+  padding: '30px 10px 20px 10px',
+  animation: 'fadeInUp 1s ease-out',
+}}>
+  <h1 style={{
+    fontSize: '28px',
+    fontWeight: 'bold',
+    color: '#00D4FF',
+    textShadow: '0 0 10px #00D4FF, 0 0 20px #00D4FF, 0 0 40px #00D4FF',
+    letterSpacing: '2px',
+    fontVariant: "small-caps",
+    marginBottom: '10px',
+    animation: 'glow 2s ease-in-out infinite alternate',
+  }}>
+    Welcome to Cinema Talkiez
+  </h1>
+  <p style={{
+    fontSize: '14px',
+    color: '#ccc',
+    maxWidth: '600px',
+    animation: 'fadeIn 2s ease-in',
+  }}>
+    Stream or download the latest Telugu and dubbed movies from reliable sites. Pick your favorite and start watching today!
+  </p>
+</div>
+
       {/* Downloads Section */}
       <div>
         <div style={headingStyle}>
