@@ -179,7 +179,7 @@ const Index1 = () => {
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
-            <img src="/images/mirror.jpg" alt="Mirror" style={imageStyle} />
+            <img src="/img/animation.jpg" alt="Mirror" style={imageStyle} />
             <div style={titleStyle}>Mirror</div>
           </div>
 <div
@@ -217,7 +217,7 @@ const Index1 = () => {
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
-            <img src="/images/toonworld4all.jpg" alt="Toonworld4all" style={imageStyle} />
+            <img src="/img/action.jpg" alt="Toonworld4all" style={imageStyle} />
             <div style={titleStyle}>Toonworld4all</div>
           </div>
 <div
