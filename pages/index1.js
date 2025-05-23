@@ -1,26 +1,31 @@
 import React from "react";
 
 const Index1 = () => {
-  const items = [
-    { title: "ESA Ibomma", url: "https://rce.ibomma.men/", image: "https://picsum.photos/300/140?random=1" },
-    { title: "Movierulz", url: "https://www.5movierulz.srl/", image: "https://picsum.photos/300/140?random=2" },
-    { title: "Moviezwap", url: "https://www.moviezwap.pub/", image: "https://picsum.photos/300/140?random=3" },
-    { title: "Movieswood", url: "https://movieswood.cloud/", image: "https://picsum.photos/300/140?random=4" },
-    { title: "Mirror", url: "https://netfree2.cc/mobile/home", image: "https://picsum.photos/300/140?random=5" },
-    { title: "Toonworld4all", url: "https://toonworld4all.me/", image: "https://picsum.photos/300/140?random=6" },
-    { title: "Anime World", url: "https://watchanimeworld.in/", image: "https://picsum.photos/300/140?random=7" },
-    { title: "AnimeDub", url: "https://animedub.pro/", image: "https://picsum.photos/300/140?random=8" },
-    { title: "9Anime", url: "https://9anime.org.lv/", image: "https://picsum.photos/300/140?random=9" },
-    { title: "ZoroTV", url: "https://zorotv.com.in/", image: "https://picsum.photos/300/140?random=10" },
-    { title: "TeluguPalakaMovies", url: "https://telugupalakamovies.com/", image: "https://picsum.photos/300/140?random=11" },
-    { title: "Toons Hub", url: "https://toonshub.xyz/", image: "https://picsum.photos/300/140?random=12" },
-    { title: "H! Anime", url: "https://hianimez.to/home", image: "https://picsum.photos/300/140?random=13" },
-    { title: "Anime4U", url: "https://www.animes4u.com/", image: "https://picsum.photos/300/140?random=14" },
-    { title: "Game Space", url: "https://poki.com/", image: "https://picsum.photos/300/140?random=15" },
-  ];
-
   const handleRedirect = (url) => {
-    window.location.href = url;
+    if (url) window.location.href = url;
+  };
+
+  const pageStyle = {
+    backgroundColor: "black",
+    minHeight: "100vh",
+    padding: "10px",
+  };
+
+  const headingStyle = {
+    display: "flex",
+    alignItems: "center",
+    fontSize: "15px",
+    fontWeight: "bold",
+    textTransform: "uppercase",
+    color: "white",
+    marginBottom: "10px",
+  };
+
+  const cyanBarStyle = {
+    width: "5px",
+    height: "25px",
+    backgroundColor: "#00D4FF",
+    marginRight: "10px",
   };
 
   const containerStyle = {
@@ -28,8 +33,7 @@ const Index1 = () => {
     gridTemplateColumns: "repeat(3, 1fr)",
     gap: "10px",
     padding: "10px",
-    backgroundColor: "black",
-    minHeight: "100vh",
+    marginBottom: "5px",
   };
 
   const cardStyle = {
@@ -41,7 +45,7 @@ const Index1 = () => {
     textAlign: "center",
     color: "white",
     backgroundColor: "black",
-    border: "1px solid #333",
+    border: "1px solid #00D4FF",
   };
 
   const imageStyle = {
@@ -51,28 +55,202 @@ const Index1 = () => {
   };
 
   const titleStyle = {
-    fontSize: "13px",
+    fontSize: "10px",
     fontWeight: "bold",
-    margin: "8px 5px 12px 5px",
+    margin: "8px 5px 10px 5px",
     whiteSpace: "nowrap",
     overflow: "hidden",
     textOverflow: "ellipsis",
+    textTransform: "uppercase",
+    letterSpacing: "1px",
   };
 
   return (
-    <div style={containerStyle}>
-      {items.map((item, index) => (
-        <div
-          key={index}
-          style={cardStyle}
-          onClick={() => handleRedirect(item.url)}
-          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
-          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-        >
-          <img src={item.image} alt={item.title} style={imageStyle} />
-          <div style={titleStyle}>{item.title}</div>
+    <div style={pageStyle}>
+      {/* Downloads Section */}
+      <div>
+        <div style={headingStyle}>
+          <div style={cyanBarStyle}></div>
+          Best for Downloads
         </div>
-      ))}
+        <div style={containerStyle}>
+          <div
+            style={cardStyle}
+            onClick={() => handleRedirect("https://esaibomma.link/")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/crime.jpg" alt="ESA Ibomma" style={imageStyle} />
+            <div style={titleStyle}>ESA Ibomma</div>
+          </div>
+
+          <div
+            style={cardStyle}
+            onClick={() => handleRedirect("https://www.5movierulz.srl/")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/crime.jpg" alt="Movierulz" style={imageStyle} />
+            <div style={titleStyle}>Movierulz</div>
+          </div>
+
+          <div
+            style={cardStyle}
+            onClick={() => handleRedirect(null)}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/family.jpg" alt="Moviezwap" style={imageStyle} />
+            <div style={titleStyle}>Moviezwap</div>
+          </div>
+<div
+            style={cardStyle}
+            onClick={() => handleRedirect("https://esaibomma.link/")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/crime.jpg" alt="ESA Ibomma" style={imageStyle} />
+            <div style={titleStyle}>ESA Ibomma</div>
+          </div>
+
+          <div
+            style={cardStyle}
+            onClick={() => handleRedirect("https://www.5movierulz.srl/")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/crime.jpg" alt="Movierulz" style={imageStyle} />
+            <div style={titleStyle}>Movierulz</div>
+          </div>
+
+          <div
+            style={cardStyle}
+            onClick={() => handleRedirect(null)}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/family.jpg" alt="Moviezwap" style={imageStyle} />
+            <div style={titleStyle}>Moviezwap</div>
+          </div>
+<div
+            style={cardStyle}
+            onClick={() => handleRedirect("https://esaibomma.link/")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/crime.jpg" alt="ESA Ibomma" style={imageStyle} />
+            <div style={titleStyle}>ESA Ibomma</div>
+          </div>
+
+          <div
+            style={cardStyle}
+            onClick={() => handleRedirect("https://www.5movierulz.srl/")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/crime.jpg" alt="Movierulz" style={imageStyle} />
+            <div style={titleStyle}>Movierulz</div>
+          </div>
+
+          <div
+            style={cardStyle}
+            onClick={() => handleRedirect(null)}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/family.jpg" alt="Moviezwap" style={imageStyle} />
+            <div style={titleStyle}>Moviezwap</div>
+          </div>
+          {/* Add more cards as needed... */}
+        </div>
+      </div>
+
+      {/* Online Watching Section */}
+      <div>
+        <div style={headingStyle}>
+          <div style={cyanBarStyle}></div>
+          Best for Online Watching
+        </div>
+        <div style={containerStyle}>
+          <div
+            style={cardStyle}
+            onClick={() => handleRedirect("https://netfree2.cc/mobile/home")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/images/mirror.jpg" alt="Mirror" style={imageStyle} />
+            <div style={titleStyle}>Mirror</div>
+          </div>
+<div
+            style={cardStyle}
+            onClick={() => handleRedirect("https://esaibomma.link/")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/crime.jpg" alt="ESA Ibomma" style={imageStyle} />
+            <div style={titleStyle}>ESA Ibomma</div>
+          </div>
+
+          <div
+            style={cardStyle}
+            onClick={() => handleRedirect("https://www.5movierulz.srl/")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/crime.jpg" alt="Movierulz" style={imageStyle} />
+            <div style={titleStyle}>Movierulz</div>
+          </div>
+
+          <div
+            style={cardStyle}
+            onClick={() => handleRedirect(null)}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/family.jpg" alt="Moviezwap" style={imageStyle} />
+            <div style={titleStyle}>Moviezwap</div>
+          </div>
+          <div
+            style={cardStyle}
+            onClick={() => handleRedirect("https://toonworld4all.me/")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/images/toonworld4all.jpg" alt="Toonworld4all" style={imageStyle} />
+            <div style={titleStyle}>Toonworld4all</div>
+          </div>
+<div
+            style={cardStyle}
+            onClick={() => handleRedirect("https://esaibomma.link/")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/crime.jpg" alt="ESA Ibomma" style={imageStyle} />
+            <div style={titleStyle}>ESA Ibomma</div>
+          </div>
+
+          <div
+            style={cardStyle}
+            onClick={() => handleRedirect("https://www.5movierulz.srl/")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/crime.jpg" alt="Movierulz" style={imageStyle} />
+            <div style={titleStyle}>Movierulz</div>
+          </div>
+
+          <div
+            style={cardStyle}
+            onClick={() => handleRedirect(null)}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/family.jpg" alt="Moviezwap" style={imageStyle} />
+            <div style={titleStyle}>Moviezwap</div>
+          </div>
+          {/* Add more cards with manual images here */}
+        </div>
+      </div>
     </div>
   );
 };
