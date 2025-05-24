@@ -128,7 +128,7 @@ const Index1 = () => {
 
           <div
             style={cardStyle}
-            onClick={() => handleRedirect(null)}
+            onClick={() => handleRedirect("https://animedub.pro/")}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
