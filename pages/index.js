@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 export default function HomePage() {
   const [validToken, setValidToken] = useState(false);
   const [checkingToken, setCheckingToken] = useState(true);
+  const [adBlockerDetected, setAdBlockerDetected] = useState(null);
   const router = useRouter();
 
   // Function to check token validity
@@ -25,8 +26,21 @@ export default function HomePage() {
     setCheckingToken(false);
   }, []);
 
+  // Function to detect ad blocker
+  const detectAdBlocker = useCallback(async () => {
+    try {
+      await fetch("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", {
+        method: "HEAD",
+      });
+      setAdBlockerDetected(false);
+    } catch (error) {
+      setAdBlockerDetected(true);
+    }
+  }, []);
+
   useEffect(() => {
     checkTokenValidity();
+    detectAdBlocker();
 
     const handleStorageChange = () => {
       checkTokenValidity();
@@ -34,7 +48,7 @@ export default function HomePage() {
 
     window.addEventListener("storage", handleStorageChange);
     return () => window.removeEventListener("storage", handleStorageChange);
-  }, [checkTokenValidity]);
+  }, [checkTokenValidity, detectAdBlocker]);
 
   return (
     <div className="glassmorphism-page">
@@ -45,8 +59,15 @@ export default function HomePage() {
         </p>
         <p>OUT content is regularly added to watch/download.</p>
 
-        {checkingToken ? (
-          <p className="loading-text">Checking token...</p>
+        {checkingToken || adBlockerDetected === null ? (
+          <p className="loading-text">Checking token and ad blocker...</p>
+        ) : adBlockerDetected ? (
+          <div>
+            <h2>Ad Blocker Detected</h2>
+            <p>
+              Please disable your ad blocker to access Cinema Talkiez. Ads help us keep our platform free for everyone.
+            </p>
+          </div>
         ) : (
           <>
             {!validToken ? (
