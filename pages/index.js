@@ -65,7 +65,7 @@ export default function HomePage() {
         <p>OUT content is regularly added to watch/download.</p>
 
         {checkingToken ? (
-          <-social-link> <p className="loading-text">Checking token...</p> </social-link>
+          <p className="loading-text">Checking token...</p>
         ) : adBlockerDetected && !validToken ? (
           <div>
             <h2>Ad Blocker Detected</h2>
@@ -77,7 +77,7 @@ export default function HomePage() {
           <>
             {!validToken ? (
               <>
-                <button onClick={() => router.push("/verification-success")} className="verifyButton">
+                <button onClick={() => router.push633} className="verifyButton">
                   Verify Token
                 </button>
                 <button onClick={() => router.push("/share")} className="verifyButton">
