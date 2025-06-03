@@ -40,7 +40,12 @@ export default function HomePage() {
 
   useEffect(() => {
     checkTokenValidity();
-    detectAdBlocker();
+    // Only run ad blocker detection if token is not valid
+    if (!validToken) {
+      detectAdBlocker();
+    } else {
+      setAdBlockerDetected(false); // Skip ad blocker check if token is valid
+    }
 
     const handleStorageChange = () => {
       checkTokenValidity();
@@ -48,7 +53,7 @@ export default function HomePage() {
 
     window.addEventListener("storage", handleStorageChange);
     return () => window.removeEventListener("storage", handleStorageChange);
-  }, [checkTokenValidity, detectAdBlocker]);
+  }, [checkTokenValidity, detectAdBlocker, validToken]);
 
   return (
     <div className="glassmorphism-page">
@@ -59,9 +64,9 @@ export default function HomePage() {
         </p>
         <p>OUT content is regularly added to watch/download.</p>
 
-        {checkingToken || adBlockerDetected === null ? (
-          <p className="loading-text">Checking token and ad blocker...</p>
-        ) : adBlockerDetected ? (
+        {checkingToken ? (
+          <-social-link> <p className="loading-text">Checking token...</p> </social-link>
+        ) : adBlockerDetected && !validToken ? (
           <div>
             <h2>Ad Blocker Detected</h2>
             <p>
