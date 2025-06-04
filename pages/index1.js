@@ -112,7 +112,7 @@ const Index1 = () => {
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
-            <img src="/img/crime.jpg" alt="ESA Ibomma" style={imageStyle} />
+            <img src="/img/crime.jpg" alt="Ibomma" style={imageStyle} />
             <div style={titleStyle}>Ibomma</div>
           </div>
 
@@ -128,7 +128,7 @@ const Index1 = () => {
 
           <div
             style={cardStyle}
-            onClick={() => handleRedirect("https://animedub.pro/")}
+            onClick={() => handleRedirect("https://www.moviezwap.farm/")}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
@@ -137,12 +137,12 @@ const Index1 = () => {
           </div>
 <div
             style={cardStyle}
-            onClick={() => handleRedirect("https://google.com/")}
+            onClick={() => handleRedirect("https://movieswood.cloud/")}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
-            <img src="/img/crime.jpg" alt="ESA Ibomma" style={imageStyle} />
-            <div style={titleStyle}>ESA Ibomma</div>
+            <img src="/img/crime.jpg" alt="Movieswood" style={imageStyle} />
+            <div style={titleStyle}>Movieswood</div>
           </div>
 
           <div
