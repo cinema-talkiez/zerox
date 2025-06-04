@@ -108,17 +108,17 @@ const Index1 = () => {
         <div style={containerStyle}>
           <div
             style={cardStyle}
-            onClick={() => handleRedirect("https://www.moviezwap.farm/")}
+            onClick={() => handleRedirect("https://one.ibomma.foo/")}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
             <img src="/img/crime.jpg" alt="ESA Ibomma" style={imageStyle} />
-            <div style={titleStyle}>ESA Ibomma</div>
+            <div style={titleStyle}>Ibomma</div>
           </div>
 
           <div
             style={cardStyle}
-            onClick={() => handleRedirect("https://www.5movierulz.srl/")}
+            onClick={() => handleRedirect("https://www.5movierulz.haus/")}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
