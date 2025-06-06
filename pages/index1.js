@@ -99,6 +99,46 @@ const Index1 = () => {
   </p>
 </div>
 
+<div>
+        <div style={headingStyle}>
+          <div style={cyanBarStyle}></div>
+          Game Space
+        </div>
+        <div style={containerStyle}>
+          <div
+            style={cardStyle}
+            onClick={() => handleRedirect("https://poki.com/")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/crime.jpg" alt="Ibomma" style={imageStyle} />
+            <div style={titleStyle}>Poki</div>
+          </div>
+
+              <div
+            style={cardStyle}
+            onClick={() => handleRedirect("https://www.crazygames.com/")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/crime.jpg" alt="Movierulz" style={imageStyle} />
+            <div style={titleStyle}>Crazy Games</div>
+          </div>
+
+            <div
+            style={cardStyle}
+            onClick={() => handleRedirect("https://playhop.com/")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/crime.jpg" alt="Movierulz" style={imageStyle} />
+            <div style={titleStyle}>PlayHop</div>
+          </div>
+
+            
+        </div>
+      </div>
+
       {/* Downloads Section */}
       <div>
         <div style={headingStyle}>
