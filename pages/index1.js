@@ -287,7 +287,7 @@ const Index1 = () => {
           </div>
 <div
             style={cardStyle}
-            onClick={() => handleRedirect("https://poki.com/")}
+            onClick={() => handleRedirect("https://poki.com/", "_blank")}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
