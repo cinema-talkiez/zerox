@@ -285,6 +285,15 @@ const Index1 = () => {
             <img src="/img/family.jpg" alt="Moviezwap" style={imageStyle} />
             <div style={titleStyle}>Zoro TV</div>
           </div>
+<div
+            style={cardStyle}
+            onClick={() => handleRedirect("https://poki.com/")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/crime.jpg" alt="Ibomma" style={imageStyle} />
+            <div style={titleStyle}>Poki</div>
+          </div>
           {/* Add more cards with manual images here */}
         </div>
       </div>
