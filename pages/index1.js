@@ -103,7 +103,7 @@ const Index1 = () => {
       <div>
         <div style={headingStyle}>
           <div style={cyanBarStyle}></div>
-          Best for Downloads
+          Movie Section
         </div>
         <div style={containerStyle}>
           <div
@@ -166,46 +166,46 @@ const Index1 = () => {
       <div>
         <div style={headingStyle}>
           <div style={cyanBarStyle}></div>
-          Best for Online Watching
+          Anime & Cartoon Section
         </div>
         <div style={containerStyle}>
           <div
             style={cardStyle}
-            onClick={() => handleRedirect("https://netfree2.cc/mobile/home")}
+            onClick={() => handleRedirect("https://animerulz.net/")}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
             <img src="/img/animation.jpg" alt="Mirror" style={imageStyle} />
-            <div style={titleStyle}>Mirror</div>
+            <div style={titleStyle}>AnimeRulz</div>
           </div>
 <div
             style={cardStyle}
-            onClick={() => handleRedirect("https://esaibomma.link/")}
+            onClick={() => handleRedirect("https://watchanimeworld.in/")}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
             <img src="/img/crime.jpg" alt="ESA Ibomma" style={imageStyle} />
-            <div style={titleStyle}>ESA Ibomma</div>
+            <div style={titleStyle}>Anime World</div>
           </div>
 
           <div
             style={cardStyle}
-            onClick={() => handleRedirect("https://www.5movierulz.srl/")}
+            onClick={() => handleRedirect("https://animedub.pro/home")}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
             <img src="/img/crime.jpg" alt="Movierulz" style={imageStyle} />
-            <div style={titleStyle}>Movierulz</div>
+            <div style={titleStyle}>Animedub</div>
           </div>
 
           <div
             style={cardStyle}
-            onClick={() => handleRedirect(null)}
+            onClick={() => handleRedirect("https://toonshub.xyz/")}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
             <img src="/img/family.jpg" alt="Moviezwap" style={imageStyle} />
-            <div style={titleStyle}>Moviezwap</div>
+            <div style={titleStyle}>Toons Hub</div>
           </div>
           <div
             style={cardStyle}
@@ -218,32 +218,32 @@ const Index1 = () => {
           </div>
 <div
             style={cardStyle}
-            onClick={() => handleRedirect("https://esaibomma.link/")}
+            onClick={() => handleRedirect("https://hianime.pe/home")}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
             <img src="/img/crime.jpg" alt="ESA Ibomma" style={imageStyle} />
-            <div style={titleStyle}>ESA Ibomma</div>
+            <div style={titleStyle}>H! Anime</div>
           </div>
 
           <div
             style={cardStyle}
-            onClick={() => handleRedirect("https://www.5movierulz.srl/")}
+            onClick={() => handleRedirect("https://9anime.org.lv/")}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
             <img src="/img/crime.jpg" alt="Movierulz" style={imageStyle} />
-            <div style={titleStyle}>Movierulz</div>
+            <div style={titleStyle}>9anime</div>
           </div>
 
           <div
             style={cardStyle}
-            onClick={() => handleRedirect(null)}
+            onClick={() => handleRedirect("https://zorotv.com.in/")}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
             <img src="/img/family.jpg" alt="Moviezwap" style={imageStyle} />
-            <div style={titleStyle}>Moviezwap</div>
+            <div style={titleStyle}>Zoro TV</div>
           </div>
           {/* Add more cards with manual images here */}
         </div>
