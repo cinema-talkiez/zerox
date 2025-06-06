@@ -116,6 +116,16 @@ const Index1 = () => {
             <div style={titleStyle}>Ibomma</div>
           </div>
 
+            <div
+            style={cardStyle}
+            onClick={() => handleRedirect("https://www.moviezwap.farm/")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/family.jpg" alt="Moviezwap" style={imageStyle} />
+            <div style={titleStyle}>Moviezwap</div>
+          </div>
+
           <div
             style={cardStyle}
             onClick={() => handleRedirect("https://www.5movierulz.haus/")}
@@ -126,73 +136,28 @@ const Index1 = () => {
             <div style={titleStyle}>Movierulz</div>
           </div>
 
-          <div
-            style={cardStyle}
-            onClick={() => handleRedirect("https://www.moviezwap.farm/")}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-          >
-            <img src="/img/family.jpg" alt="Moviezwap" style={imageStyle} />
-            <div style={titleStyle}>Moviezwap</div>
-          </div>
+          
 <div
             style={cardStyle}
-            onClick={() => handleRedirect("https://movieswood.cloud/")}
+            onClick={() => handleRedirect("https://netfree2.cc/mobile/home")}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
             <img src="/img/crime.jpg" alt="Movieswood" style={imageStyle} />
-            <div style={titleStyle}>Movieswood</div>
+            <div style={titleStyle}>NetMirror</div>
           </div>
 
           <div
             style={cardStyle}
-            onClick={() => handleRedirect("https://www.5movierulz.srl/")}
+            onClick={() => handleRedirect("https://telugupalakamovies.com/")}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
             <img src="/img/crime.jpg" alt="Movierulz" style={imageStyle} />
-            <div style={titleStyle}>Movierulz</div>
+            <div style={titleStyle}>Telugupalaka</div>
           </div>
 
-          <div
-            style={cardStyle}
-            onClick={() => handleRedirect(null)}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-          >
-            <img src="/img/family.jpg" alt="Moviezwap" style={imageStyle} />
-            <div style={titleStyle}>Moviezwap</div>
-          </div>
-<div
-            style={cardStyle}
-            onClick={() => handleRedirect("https://esaibomma.link/")}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-          >
-            <img src="/img/crime.jpg" alt="ESA Ibomma" style={imageStyle} />
-            <div style={titleStyle}>ESA Ibomma</div>
-          </div>
-
-          <div
-            style={cardStyle}
-            onClick={() => handleRedirect("https://www.5movierulz.srl/")}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-          >
-            <img src="/img/crime.jpg" alt="Movierulz" style={imageStyle} />
-            <div style={titleStyle}>Movierulz</div>
-          </div>
-
-          <div
-            style={cardStyle}
-            onClick={() => handleRedirect(null)}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-          >
-            <img src="/img/family.jpg" alt="Moviezwap" style={imageStyle} />
-            <div style={titleStyle}>Moviezwap</div>
-          </div>
+          
           {/* Add more cards as needed... */}
         </div>
       </div>
