@@ -162,7 +162,7 @@ const Index1 = () => {
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
-            <img src="/img/family.jpg" alt="Moviezwap" style={imageStyle} />
+            <img src="/img/MoviezWap-3.jpg" alt="Moviezwap" style={imageStyle} />
             <div style={titleStyle}>Moviezwap</div>
           </div>
 
@@ -172,7 +172,7 @@ const Index1 = () => {
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
-            <img src="/img/crime.jpg" alt="Movierulz" style={imageStyle} />
+            <img src="/img/movierulz-website.jpg" alt="Movierulz" style={imageStyle} />
             <div style={titleStyle}>Movierulz</div>
           </div>
 
