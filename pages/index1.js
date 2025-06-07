@@ -111,7 +111,7 @@ const Index1 = () => {
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
-            <img src="/img/poki.jpg" alt="Ibomma" style={imageStyle} />
+            <img src="/img/game1.jpg" alt="Ibomma" style={imageStyle} />
             <div style={titleStyle}>Poki</div>
           </div>
 
@@ -121,7 +121,7 @@ const Index1 = () => {
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
-            <img src="/img/crazygames.png" alt="Movierulz" style={imageStyle} />
+            <img src="/img/game2.png" alt="Movierulz" style={imageStyle} />
             <div style={titleStyle}>Crazy Games</div>
           </div>
 
