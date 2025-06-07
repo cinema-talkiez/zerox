@@ -152,7 +152,7 @@ const Index1 = () => {
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
-            <img src="/img/crime.jpg" alt="Ibomma" style={imageStyle} />
+            <img src="/img/ibomma.jpg" alt="Ibomma" style={imageStyle} />
             <div style={titleStyle}>Ibomma</div>
           </div>
 
