@@ -240,6 +240,16 @@ const Index1 = () => {
 
           <div
             style={cardStyle}
+            onClick={() => handleRedirect("https://anihub.in/")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src="/img/A4.jpg" alt="Moviezwap" style={imageStyle} />
+            <div style={titleStyle}>Toons Hub</div>
+          </div>
+
+          <div
+            style={cardStyle}
             onClick={() => handleRedirect("https://toonshub.xyz/")}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
