@@ -9,7 +9,7 @@ const Index1 = () => {
 
     let stars = [];
     const numStars = 150;
-    const minStartRadius = 50;
+    const minStartRadius = 10;
     const maxStartRadius = 150;
 
     const resizeCanvas = () => {
@@ -64,7 +64,7 @@ const Index1 = () => {
           star.dx = Math.cos(angle);
           star.dy = Math.sin(angle);
           star.speed = Math.random() * 0.25 + 0.05;
-          star.size = Math.random() * 0.4 + 0.2;
+          star.size = Math.random() * 0.4 + 0.5;
         }
       }
 
