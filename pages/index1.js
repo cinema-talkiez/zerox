@@ -9,8 +9,6 @@ const Index1 = () => {
 
     let stars = [];
     const numStars = 150;
-    const minStartRadius = 10;
-    const maxStartRadius = 150;
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -20,12 +18,13 @@ const Index1 = () => {
     const createStars = () => {
       stars = [];
       for (let i = 0; i < numStars; i++) {
+        const x = Math.random() * canvas.width - canvas.width / 2;
+        const y = Math.random() * canvas.height - canvas.height / 2;
         const angle = Math.random() * 2 * Math.PI;
-        const radius = Math.random() * (maxStartRadius - minStartRadius) + minStartRadius;
 
         stars.push({
-          x: Math.cos(angle) * radius,
-          y: Math.sin(angle) * radius,
+          x,
+          y,
           dx: Math.cos(angle),
           dy: Math.sin(angle),
           speed: Math.random() * 0.25 + 0.05,
@@ -51,20 +50,19 @@ const Index1 = () => {
         star.x += star.dx * star.speed;
         star.y += star.dy * star.speed;
 
+        // Reset if star moves out of screen
         if (
           star.x < -canvas.width / 2 ||
           star.x > canvas.width / 2 ||
           star.y < -canvas.height / 2 ||
           star.y > canvas.height / 2
         ) {
-          const angle = Math.random() * 2 * Math.PI;
-          const radius = Math.random() * (maxStartRadius - minStartRadius) + minStartRadius;
-          star.x = Math.cos(angle) * radius;
-          star.y = Math.sin(angle) * radius;
-          star.dx = Math.cos(angle);
-          star.dy = Math.sin(angle);
+          star.x = Math.random() * canvas.width - canvas.width / 2;
+          star.y = Math.random() * canvas.height - canvas.height / 2;
+          star.dx = Math.cos(Math.random() * 2 * Math.PI);
+          star.dy = Math.sin(Math.random() * 2 * Math.PI);
           star.speed = Math.random() * 0.25 + 0.05;
-          star.size = Math.random() * 0.4 + 0.5;
+          star.size = Math.random() * 0.5 + 0.6;
         }
       }
 
@@ -77,7 +75,10 @@ const Index1 = () => {
     createStars();
     animate();
 
-    window.addEventListener("resize", resizeCanvas);
+    window.addEventListener("resize", () => {
+      resizeCanvas();
+      createStars();
+    });
     return () => {
       window.removeEventListener("resize", resizeCanvas);
     };
