@@ -320,7 +320,7 @@ const Index1 = () => {
             </div>
             <div
               style={cardStyle}
-              onClick={() => handleRedirect("https://anihub.in/")}
+              onClick={() => handleRedirect("https://youtube.com/")}
               onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
               onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
             >
