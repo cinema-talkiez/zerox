@@ -293,7 +293,7 @@ const Index1 = () => {
           <div style={containerStyle}>
             <div
               style={cardStyle}
-              onClick={() => handleRedirect("https://animerulz.net")}
+              onClick={() => handleRedirect("https://animerulz.net/language/telugu")}
               onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
               onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
             >
