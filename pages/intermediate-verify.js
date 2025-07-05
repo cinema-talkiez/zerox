@@ -6,17 +6,17 @@ export default function IntermediateVerify() {
   const [showContinue, setShowContinue] = useState(false);
   const router = useRouter();
   const countdownRef = useRef(null);
-  const popStateHandlerRef = useRef(null);
-
-  // Define the popstate handler separately so it can be removed later
-  const handlePopState = () => {
-    // Prevent navigating back
-    router.replace("/");
-  };
 
   useEffect(() => {
     // Open ad link in new tab
     window.location.href = "https://www.profitableratecpm.com/zashzvy33z?key=a6d934ddf20a311b77e2751a70acb953";
+
+    // Prevent back navigation in WebView by pushing a dummy state
+    window.history.pushState(null, "", window.location.href);
+    const handlePopState = () => {
+      window.history.pushState(null, "", window.location.href);
+    };
+    window.addEventListener("popstate", handlePopState);
 
     // Start countdown
     countdownRef.current = setInterval(() => {
@@ -30,18 +30,13 @@ export default function IntermediateVerify() {
       });
     }, 1000);
 
-    // Attach back button handler
-    popStateHandlerRef.current = handlePopState;
-    window.addEventListener("popstate", popStateHandlerRef.current);
-
     return () => {
       clearInterval(countdownRef.current);
-      window.removeEventListener("popstate", popStateHandlerRef.current);
+      window.removeEventListener("popstate", handlePopState);
     };
-  }, [router]);
+  }, []);
 
   const handleContinue = () => {
-    window.removeEventListener("popstate", popStateHandlerRef.current);
     router.replace("/verification-success");
   };
 
