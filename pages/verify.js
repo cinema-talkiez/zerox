@@ -1,93 +1,5 @@
 import { FcApproval } from "react-icons/fc";
 import React, { useState } from 'react';
-import styled from 'styled-components';
-
-// Styled components for CSS
-const GlassmorphismPage = styled.div`
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f3f4f6; /* bg-gray-100 */
-`;
-
-const Container = styled.div`
-  background: rgba(255, 255, 255, 0.8);
-  padding: 2rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  max-width: 28rem;
-  width: 100%;
-`;
-
-const TimeoutText = styled.h1`
-  color: #ef4444; /* text-red-500 */
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-top: 1rem;
-`;
-
-const Error = styled.p`
-  color: #dc2626; /* text-red-600 */
-  margin-top: 0.5rem;
-`;
-
-const VerifyButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #4f46e5; /* bg-indigo-600 */
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
-  margin-top: 1rem;
-  &:hover {
-    background-color: #4338ca; /* hover:bg-indigo-700 */
-  }
-  &:disabled {
-    opacity: 0.5;
-  }
-`;
-
-const Icon = styled(FcApproval)`
-  margin-right: 0.5rem;
-`;
-
-const PopupOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-`;
-
-const PopupContent = styled.div`
-  background: white;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 90%;
-`;
-
-const ContinueButton = styled.button`
-  background-color: #4f46e5; /* bg-indigo-600 */
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.375rem;
-  cursor: pointer;
-  margin-top: 1rem;
-  &:hover {
-    background-color: #4338ca; /* hover:bg-indigo-700 */
-  }
-`;
 
 export default function VerifyPage() {
   const [isVerifying, setIsVerifying] = useState(false);
@@ -125,34 +37,126 @@ export default function VerifyPage() {
     console.log("Redirecting to /verification-success");
   };
 
+  // Inline styles
+  const styles = {
+    glassmorphismPage: {
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#f3f4f6', // bg-gray-100
+    },
+    container: {
+      background: 'rgba(255, 255, 255, 0.8)',
+      padding: '2rem',
+      borderRadius: '0.5rem',
+      boxShadow: '0 10px 15px rgba(0, 0, 0, 0.1)',
+      maxWidth: '28rem',
+      width: '100%',
+    },
+    timeoutText: {
+      color: '#ef4444', // text-red-500
+      fontSize: '1.125rem',
+      fontWeight: '600',
+      marginTop: '1rem',
+    },
+    error: {
+      color: '#dc2626', // text-red-600
+      marginTop: '0.5rem',
+    },
+    verifyButton: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#4f46e5', // bg-indigo-600
+      color: 'white',
+      padding: '0.5rem 1rem',
+      borderRadius: '0.375rem',
+      marginTop: '1rem',
+      border: 'none',
+      cursor: isVerifying ? 'not-allowed' : 'pointer',
+      opacity: isVerifying ? 0.5 : 1,
+    },
+    verifyButtonHover: {
+      backgroundColor: '#4338ca', // hover:bg-indigo-700
+    },
+    icon: {
+      marginRight: '0.5rem',
+    },
+    popupOverlay: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      background: 'rgba(0, 0, 0, 0.5)',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      zIndex: 1000,
+    },
+    popupContent: {
+      background: 'white',
+      padding: '1.5rem',
+      borderRadius: '0.5rem',
+      textAlign: 'center',
+      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+      maxWidth: '400px',
+      width: '90%',
+    },
+    continueButton: {
+      backgroundColor: '#4f46e5', // bg-indigo-600
+      color: 'white',
+      padding: '0.5rem 1rem',
+      border: 'none',
+      borderRadius: '0.375rem',
+      cursor: 'pointer',
+      marginTop: '1rem',
+    },
+    continueButtonHover: {
+      backgroundColor: '#4338ca', // hover:bg-indigo-700
+    },
+  };
+
   return (
-    <GlassmorphismPage>
-      <Container>
+    <div style={styles.glassmorphismPage}>
+      <div style={styles.container}>
         <h2>Verify Your Access</h2>
         <p>Click the button below to open the verification ad in a new tab. Keep the ad tab open to complete verification.</p>
-        <TimeoutText>Access Timeout: 24hrs</TimeoutText>
+        <h1 style={styles.timeoutText}>Access Timeout: 24hrs</h1>
 
-        {errorMessage && <Error>{errorMessage}</Error>}
+        {errorMessage && <p style={styles.error}>{errorMessage}</p>}
 
-        <VerifyButton onClick={handleVerification} disabled={isVerifying}>
-          <Icon />
+        <button
+          onClick={handleVerification}
+          disabled={isVerifying}
+          style={styles.verifyButton}
+          onMouseEnter={(e) => !isVerifying && (e.currentTarget.style.backgroundColor = styles.verifyButtonHover.backgroundColor)}
+          onMouseLeave={(e) => !isVerifying && (e.currentTarget.style.backgroundColor = styles.verifyButton.backgroundColor)}
+        >
+          <FcApproval style={styles.icon} />
           {isVerifying ? "Verifying..." : "Verify Now"}
-        </VerifyButton>
+        </button>
         
         <p>After verification, follow the instructions in the app to continue...</p>
-      </Container>
+      </div>
 
       {showPopup && (
-        <PopupOverlay>
-          <PopupContent>
+        <div style={styles.popupOverlay}>
+          <div style={styles.popupContent}>
             <h3>Verification In Progress</h3>
             <p>Please keep the ad tab open to complete the verification process, then click Continue.</p>
-            <ContinueButton onClick={handleContinue}>
+            <button
+              onClick={handleContinue}
+              style={styles.continueButton}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.continueButtonHover.backgroundColor)}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.continueButton.backgroundColor)}
+            >
               Continue
-            </ContinueButton>
-          </PopupContent>
-        </PopupOverlay>
+            </button>
+          </div>
+        </div>
       )}
-    </GlassmorphismPage>
+    </div>
   );
 }
