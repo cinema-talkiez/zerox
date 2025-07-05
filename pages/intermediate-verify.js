@@ -23,8 +23,19 @@ export default function IntermediateVerify() {
       });
     }, 1000);
 
-    return () => clearInterval(countdownRef.current);
-  }, []);
+    // Intercept back button
+    const handlePopState = () => {
+      // Instead of exiting, stay on intermediate page or redirect
+      router.replace("/"); // Or "/verify" if you want to force them back to verify page
+    };
+
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      clearInterval(countdownRef.current);
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, [router]);
 
   const handleContinue = () => {
     router.replace("/verification-success");
