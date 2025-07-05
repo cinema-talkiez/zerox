@@ -8,11 +8,17 @@ export default function IntermediateVerify() {
   const countdownRef = useRef(null);
 
   useEffect(() => {
-    // Open ad link in new tab
+    const adLink = "https://www.profitableratecpm.com/zashzvy33z?key=a6d934ddf20a311b77e2751a70acb953";
+
+    // Open ad link in external app via Android interface, with fallback
     if (window.AndroidInterface?.openExternalLink) {
-      window.AndroidInterface.openExternalLink("https://www.profitableratecpm.com/zashzvy33z?key=a6d934ddf20a311b77e2751a70acb953");
+      window.AndroidInterface.openExternalLink(adLink);
+    } else {
+      // Fallback for non-WebView environments (e.g., testing in browser)
+      console.warn("AndroidInterface not available, opening ad link in new tab");
+      window.open(adLink, '_blank');
     }
-        
+
     // Prevent back navigation in WebView by pushing a dummy state
     window.history.pushState(null, "", window.location.href);
     const handlePopState = () => {
@@ -46,7 +52,7 @@ export default function IntermediateVerify() {
     <div className="glassmorphism-page">
       <div className="container5">
         <h2>Verification in Progress</h2>
-        <p>We opened the verification ad link in a new tab.</p>
+        <p>We opened the verification ad link in an external app.</p>
         {!showContinue && (
           <p className="timerText">⏳ Please wait: {countdown} seconds</p>
         )}
