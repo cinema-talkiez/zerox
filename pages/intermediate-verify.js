@@ -7,6 +7,8 @@ export default function IntermediateVerify() {
   const router = useRouter();
   const countdownRef = useRef(null);
 
+  const adLink = "https://www.profitableratecpm.com/zashzvy33z?key=a6d934ddf20a311b77e2751a70acb953";
+
   const startTimer = () => {
     if (!countdownRef.current) {
       countdownRef.current = setInterval(() => {
@@ -30,16 +32,17 @@ export default function IntermediateVerify() {
     }
   };
 
-  useEffect(() => {
-    const adLink = "https://www.profitableratecpm.com/zashzvy33z?key=a6d934ddf20a311b77e2751a70acb953";
-
-    // Open ad link in external app via Android interface, with fallback
+  const openAdLink = () => {
     if (window.AndroidInterface?.openExternalLink) {
       window.AndroidInterface.openExternalLink(adLink);
     } else {
       console.warn("AndroidInterface not available, opening ad link in new tab");
       window.open(adLink, '_blank');
     }
+  };
+
+  useEffect(() => {
+    openAdLink();
 
     // Prevent back navigation in WebView
     window.history.pushState(null, "", window.location.href);
@@ -48,18 +51,19 @@ export default function IntermediateVerify() {
     };
     window.addEventListener("popstate", handlePopState);
 
-    // Start timer only if page is hidden initially
+    // Start timer if user leaves immediately
     if (document.hidden) {
       startTimer();
     }
 
     const handleVisibilityChange = () => {
       if (document.hidden) {
-        // User left the page — start/resume countdown
+        // User left — start/resume countdown
         startTimer();
       } else {
-        // User came back to the page — pause countdown
+        // User returned — pause countdown and open ad again
         stopTimer();
+        openAdLink();
       }
     };
 
