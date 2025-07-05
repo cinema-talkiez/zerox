@@ -52,7 +52,7 @@ export default function VerifyPage() {
   };
 
   const handleContinue = () => {
-    router.push("/verification-success.js");
+    router.push("/verification-success");
   };
 
   return (
