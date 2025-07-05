@@ -1,12 +1,12 @@
 import { FcApproval } from "react-icons/fc";
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 export default function VerifyPage() {
   const [isVerifying, setIsVerifying] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [showContinue, setShowContinue] = useState(false);
-  const navigate = useNavigate();
+  const router = useRouter();
   const timerRef = useRef(null);
   const remainingTimeRef = useRef(10000);
   const startTimeRef = useRef(null);
@@ -51,7 +51,7 @@ export default function VerifyPage() {
   };
 
   const handleContinue = () => {
-    navigate("/verification-success.js");
+    router.push("/verification-success.js");
   };
 
   return (
