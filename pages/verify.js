@@ -68,26 +68,31 @@ export default function VerifyPage() {
   };
 
   return (
-    <div className="glassmorphism-page">
-      <div className="container5">
-        <h2>Verify Your Access</h2>
-        <p>Click the button below to verify yourself and gain access.</p>
-        <h1 className="timeoutText">Access Timeout: 24hrs</h1>
-        {errorMessage && <p className="error">{errorMessage}</p>}
-        <button onClick={handleVerification} disabled={isVerifying} className="verifyButton1">
-          <FcApproval className="icon1" />
-          {isVerifying ? "Verifying..." : "Verify Now"}
+  <div className="glassmorphism-page">
+    <div className="container5">
+      <h2>Verify Your Access</h2>
+      <p>Click the button below to verify yourself and gain access.</p>
+      <h1 className="timeoutText">Access Timeout: 24hrs</h1>
+      {errorMessage && <p className="error">{errorMessage}</p>}
+      
+      {/* Show timer above buttons */}
+      {isVerifying && !showContinue && (
+        <p className="timerText">⏳ Time remaining: {timeLeft} seconds</p>
+      )}
+
+      <button onClick={handleVerification} disabled={isVerifying} className="verifyButton1">
+        <FcApproval className="icon1" />
+        {isVerifying ? "Verifying..." : "Verify Now"}
+      </button>
+
+      {showContinue && (
+        <button onClick={handleContinue} className="verifyButton1">
+          Continue
         </button>
-        {isVerifying && !showContinue && (
-          <p>Time remaining: {timeLeft} seconds</p>
-        )}
-        {showContinue && (
-          <button onClick={handleContinue} className="verifyButton1">
-            Continue
-          </button>
-        )}
-        <p>After verification, you will automatically redirect...</p>
-      </div>
+      )}
+      <p>After verification, you will automatically redirect...</p>
     </div>
-  );
+  </div>
+);
+
 }
