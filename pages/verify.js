@@ -17,7 +17,7 @@ export default function VerifyPage() {
       console.log("Opening Adsterra URL:", adsterraUrl);
 
       // Open the Adsterra URL in a new tab
-      window.open(adsterraUrl, "_blank");
+      window.open(adsterraUrl);
     } catch (error) {
       console.error("Error during verification:", error);
       setErrorMessage(error.message || "An error occurred.");
