@@ -4,50 +4,60 @@ import { useRouter } from 'next/router';
 
 export default function VerifyPage() {
   const [isVerifying, setIsVerifying] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
   const [showContinue, setShowContinue] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(10);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [countdown, setCountdown] = useState(0);
   const router = useRouter();
-  const timerRef = useRef(null);
-  const intervalRef = useRef(null);
-  const startTimestampRef = useRef(null);
+
+  const leaveTimeRef = useRef(null);
+  const countdownInterval = useRef(null);
 
   useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === "hidden") {
-        startTimestampRef.current = Date.now();
-
-        timerRef.current = setTimeout(() => {
-          setShowContinue(true);
-          clearInterval(intervalRef.current);
-        }, timeLeft * 1000);
-
-        intervalRef.current = setInterval(() => {
-          const elapsed = Math.floor((Date.now() - startTimestampRef.current) / 1000);
-          const updatedTimeLeft = Math.max(0, 10 - elapsed);
-          setTimeLeft(updatedTimeLeft);
-        }, 500);
-      } else if (document.visibilityState === "visible") {
-        clearTimeout(timerRef.current);
-        clearInterval(intervalRef.current);
-        const elapsed = Math.floor((Date.now() - startTimestampRef.current) / 1000);
-        setTimeLeft((prev) => Math.max(0, prev - elapsed));
+    const handleBlur = () => {
+      if (isVerifying) {
+        leaveTimeRef.current = Date.now();
       }
     };
 
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-    return () => {
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
-      clearTimeout(timerRef.current);
-      clearInterval(intervalRef.current);
+    const handleFocus = () => {
+      if (isVerifying && leaveTimeRef.current) {
+        const elapsed = Math.floor((Date.now() - leaveTimeRef.current) / 1000);
+        if (elapsed >= 10) {
+          setShowContinue(true);
+        } else {
+          const remaining = 10 - elapsed;
+          setCountdown(remaining);
+          // Start countdown
+          countdownInterval.current = setInterval(() => {
+            setCountdown((prev) => {
+              if (prev <= 1) {
+                clearInterval(countdownInterval.current);
+                setShowContinue(true);
+                return 0;
+              }
+              return prev - 1;
+            });
+          }, 1000);
+        }
+      }
     };
-  }, []);
+
+    window.addEventListener("blur", handleBlur);
+    window.addEventListener("focus", handleFocus);
+
+    return () => {
+      window.removeEventListener("blur", handleBlur);
+      window.removeEventListener("focus", handleFocus);
+      clearInterval(countdownInterval.current);
+    };
+  }, [isVerifying]);
 
   const handleVerification = () => {
     setIsVerifying(true);
     setErrorMessage("");
-    setTimeLeft(10);
     setShowContinue(false);
+    setCountdown(0);
+    // Open ad link
     window.open("https://www.profitableratecpm.com/zashzvy33z?key=a6d934ddf20a311b77e2751a70acb953", "_blank");
   };
 
@@ -69,20 +79,25 @@ export default function VerifyPage() {
           </button>
         )}
         {isVerifying && !showContinue && (
-          <button disabled className="verifyButton1">
-            <FcApproval className="icon1" />
-            Verifying...
-          </button>
-        )}
-        {isVerifying && !showContinue && (
-          <p className="timerText">⏳ Time remaining: {timeLeft} seconds</p>
+          <>
+            <button disabled className="verifyButton1">
+              <FcApproval className="icon1" />
+              Verifying...
+            </button>
+            {countdown > 0 && (
+              <p className="timerText">⏳ Please wait: {countdown} seconds</p>
+            )}
+            {countdown === 0 && (
+              <p className="timerText">Please stay on ad page at least 10 sec before coming back.</p>
+            )}
+          </>
         )}
         {showContinue && (
           <button onClick={handleContinue} className="verifyButton1">
             ✅ Continue
           </button>
         )}
-        <p>After verification, you will automatically redirect...</p>
+        <p>After verification, you must stay on ad page at least 10 seconds before returning.</p>
       </div>
     </div>
   );
