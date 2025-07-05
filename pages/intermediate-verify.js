@@ -9,7 +9,7 @@ export default function IntermediateVerify() {
 
   useEffect(() => {
     // Open ad link in new tab
-    window.open("https://www.profitableratecpm.com/zashzvy33z?key=a6d934ddf20a311b77e2751a70acb953", "_blank");
+    window.location.href = "https://www.profitableratecpm.com/zashzvy33z?key=a6d934ddf20a311b77e2751a70acb953";
 
     // Start countdown
     countdownRef.current = setInterval(() => {
