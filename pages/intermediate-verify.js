@@ -7,7 +7,7 @@ export default function IntermediateVerify() {
   const router = useRouter();
   const countdownRef = useRef(null);
 
-  const adLink = "https://www.profitableratecpm.com/zashzvy33z?key=a6d934ddf20a311b77e2751a70acb953";
+  const adLink = "https://www.profitableratecpm.com/xnsuebii?key=74422287d276ce8e12faebb421744f4b";
 
   const startTimer = () => {
     if (!countdownRef.current) {
