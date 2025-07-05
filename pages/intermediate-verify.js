@@ -57,6 +57,8 @@ export default function IntermediateVerify() {
     }
 
     const handleVisibilityChange = () => {
+      if (showContinue) return; // ✅ Stop opening ad once continue button is enabled
+
       if (document.hidden) {
         // User left — start/resume countdown
         startTimer();
@@ -74,7 +76,7 @@ export default function IntermediateVerify() {
       window.removeEventListener("popstate", handlePopState);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, []);
+  }, [showContinue]); // ✅ Depend on showContinue
 
   const handleContinue = () => {
     router.replace("/verification-success");
