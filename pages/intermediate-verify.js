@@ -6,6 +6,13 @@ export default function IntermediateVerify() {
   const [showContinue, setShowContinue] = useState(false);
   const router = useRouter();
   const countdownRef = useRef(null);
+  const popStateHandlerRef = useRef(null);
+
+  // Define the popstate handler separately so it can be removed later
+  const handlePopState = () => {
+    // Prevent navigating back
+    router.replace("/");
+  };
 
   useEffect(() => {
     // Open ad link in new tab
@@ -23,21 +30,18 @@ export default function IntermediateVerify() {
       });
     }, 1000);
 
-    // Intercept back button
-    const handlePopState = () => {
-      // Instead of exiting, stay on intermediate page or redirect
-      router.replace("/"); // Or "/verify" if you want to force them back to verify page
-    };
-
-    window.addEventListener("popstate", handlePopState);
+    // Attach back button handler
+    popStateHandlerRef.current = handlePopState;
+    window.addEventListener("popstate", popStateHandlerRef.current);
 
     return () => {
       clearInterval(countdownRef.current);
-      window.removeEventListener("popstate", handlePopState);
+      window.removeEventListener("popstate", popStateHandlerRef.current);
     };
   }, [router]);
 
   const handleContinue = () => {
+    window.removeEventListener("popstate", popStateHandlerRef.current);
     router.replace("/verification-success");
   };
 
