@@ -13,11 +13,8 @@ export default function VerifyPage() {
   const startTimestampRef = useRef(null);
 
   useEffect(() => {
-    let visibilityStartTime;
-
     const handleVisibilityChange = () => {
       if (document.visibilityState === "hidden") {
-        // User left the page: Start timer
         startTimestampRef.current = Date.now();
 
         timerRef.current = setTimeout(() => {
@@ -31,7 +28,6 @@ export default function VerifyPage() {
           setTimeLeft(updatedTimeLeft);
         }, 500);
       } else if (document.visibilityState === "visible") {
-        // User came back: Pause timer
         clearTimeout(timerRef.current);
         clearInterval(intervalRef.current);
         const elapsed = Math.floor((Date.now() - startTimestampRef.current) / 1000);
@@ -51,6 +47,7 @@ export default function VerifyPage() {
     setIsVerifying(true);
     setErrorMessage("");
     setTimeLeft(10);
+    setShowContinue(false);
     window.open("https://www.profitableratecpm.com/zashzvy33z?key=a6d934ddf20a311b77e2751a70acb953", "_blank");
   };
 
@@ -65,16 +62,24 @@ export default function VerifyPage() {
         <p>Click the button below to verify yourself and gain access.</p>
         <h1 className="timeoutText">Access Timeout: 24hrs</h1>
         {errorMessage && <p className="error">{errorMessage}</p>}
-        <button onClick={handleVerification} disabled={isVerifying} className="verifyButton1">
-          <FcApproval className="icon1" />
-          {isVerifying ? "Verifying..." : "Verify Now"}
-        </button>
+        {!isVerifying && (
+          <button onClick={handleVerification} className="verifyButton1">
+            <FcApproval className="icon1" />
+            Verify Now
+          </button>
+        )}
+        {isVerifying && !showContinue && (
+          <button disabled className="verifyButton1">
+            <FcApproval className="icon1" />
+            Verifying...
+          </button>
+        )}
         {isVerifying && !showContinue && (
           <p className="timerText">⏳ Time remaining: {timeLeft} seconds</p>
         )}
         {showContinue && (
           <button onClick={handleContinue} className="verifyButton1">
-            Continue
+            ✅ Continue
           </button>
         )}
         <p>After verification, you will automatically redirect...</p>
