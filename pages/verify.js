@@ -6,8 +6,10 @@ export default function VerifyPage() {
   const [isVerifying, setIsVerifying] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [showContinue, setShowContinue] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(10);
   const router = useRouter();
   const timerRef = useRef(null);
+  const intervalRef = useRef(null);
   const remainingTimeRef = useRef(10000);
   const startTimeRef = useRef(null);
 
@@ -15,11 +17,19 @@ export default function VerifyPage() {
     startTimeRef.current = Date.now();
     timerRef.current = setTimeout(() => {
       setShowContinue(true);
+      clearInterval(intervalRef.current);
     }, remainingTimeRef.current);
+
+    intervalRef.current = setInterval(() => {
+      const elapsed = Date.now() - startTimeRef.current;
+      const timeRemaining = Math.max(0, (remainingTimeRef.current - elapsed) / 1000);
+      setTimeLeft(Math.ceil(timeRemaining));
+    }, 500);
   };
 
   const pauseTimer = () => {
     clearTimeout(timerRef.current);
+    clearInterval(intervalRef.current);
     const elapsed = Date.now() - startTimeRef.current;
     remainingTimeRef.current = remainingTimeRef.current - elapsed;
   };
@@ -40,12 +50,15 @@ export default function VerifyPage() {
     document.addEventListener("visibilitychange", handleVisibilityChange);
     return () => {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
+      clearTimeout(timerRef.current);
+      clearInterval(intervalRef.current);
     };
   }, [isVerifying, showContinue]);
 
   const handleVerification = () => {
     setIsVerifying(true);
     setErrorMessage("");
+    setTimeLeft(10);
     window.open("https://www.profitableratecpm.com/zashzvy33z?key=a6d934ddf20a311b77e2751a70acb953", "_blank");
     startTimer();
   };
@@ -65,6 +78,9 @@ export default function VerifyPage() {
           <FcApproval className="icon1" />
           {isVerifying ? "Verifying..." : "Verify Now"}
         </button>
+        {isVerifying && !showContinue && (
+          <p>Time remaining: {timeLeft} seconds</p>
+        )}
         {showContinue && (
           <button onClick={handleContinue} className="verifyButton1">
             Continue
