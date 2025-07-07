@@ -12,7 +12,7 @@ export default function VerifyPage() {
 
     try {
       const fixedUrl = "https://sfl.gl/N6nc";
-      window.open(fixedUrl); // Works in WebView and browser
+      window.location.href = fixedUrl; // Works in WebView and browser
     } catch (error) {
       setErrorMessage("An error occurred while opening the verification link.");
       setIsVerifying(false);
