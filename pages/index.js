@@ -90,7 +90,7 @@ export default function HomePage() {
                   Visit HomePage
                 </button>
                 <p>Verify again if ads still appear</p>
-                <button onClick={() => router.push("/verification-success")} className="verifyButton">
+                <button onClick={() => router.push("/verify")} className="verifyButton">
                   Verify Token
                 </button>
               </>
